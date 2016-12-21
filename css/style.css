@@ -1,7 +1,6 @@
-/*title {
+title {
   font-family: 'Droid Sans', sans-serif;
   color: #00000B;
-
   font-size: 36px;
   line-height: 1;
 }
@@ -9,8 +8,12 @@
 h1 {
   font-family: 'Droid Sans', sans-serif;
   color: #00000B
-  font-size: 32px;
+  font-size: 50px;
+  text-transform: uppercase;
   line-height: 1;
+  padding: 20px 0px;
+
+  text-align: center;
 }
 
 h2 {
@@ -30,7 +33,6 @@ h3 {
 h4 {
   font-family: 'PT Sans', sans-serif;
   color: #00000B;
-
   font-size: 18px;
   line-height: 1;
 }
@@ -47,7 +49,7 @@ p {
   color: #00000B;
   font-size: 12px;
   line-height: 1;
-}*/
+}
 
 /*----TempCSS---*/
 nav {
@@ -59,6 +61,7 @@ nav {
 
 .blue {
   background-color: #6A8EAE;
+  height: 125;
 }
 
 .avatar {
@@ -71,22 +74,26 @@ nav {
   display: inline;
 }
 
-#intro_text {
-    font-size: 36px;
-    color: red;
-    text-align: center;
-}
-
 .forms {
     /*email / password*/
 }
 
-.carrots_tomatoes {
+.button_box {
     background-image: url("../images/web_images/tomatoes.png");
     margin: auto;
     height: 350px;
     background-size: cover;
     background-position: center;
+}
+
+.btn-login {
+     background-color: #6A8EAE;
+     padding: 10px;
+     font-family: 'Droid Sans', sans-serif;
+     color: #00000B;
+     font-size: 24px;
+     line-height: 1;
+     border-radius: 10px;
 }
 
 .login {
@@ -97,26 +104,33 @@ nav {
 .outer_container {
     text-align: center;
     background-color: #57A773;
-    height: 200px;
     padding-top: 2px;
 }
 
 
 /*container colors and radius*/
 .inner_containers {
-    background-color: #6A8EAE;
+    margin: 30px;
+    padding: 15px;
     border-radius: 10px;
+
 }
 
 /*boxes will vary and same content */
 .inner_content {
     text-align: left;
+    margin: 15px;
+    background-color: #6A8EAE;
+    padding: 15px;
+    display: inline-block;
 }
 
 /*-------------- New Account ----------------*/
 
-.button_box {
 
+.main_box {
+text-align: center;
+padding: 250px 50px 20px 50px;
 }
 
 .donor_login {
@@ -172,7 +186,9 @@ nav {
 
 
 
+.allcharities {
 
+}
 
 
 
@@ -199,7 +215,6 @@ nav {
 }
 
 
-
 /*-------------- Charity Home Logged In ----------------*/
 
 .charity_map {
@@ -209,9 +224,12 @@ nav {
 .charity_profile
 
 
+
+
+
 /*-------------- charitylogin ----------------*/
 
-.login {
+/*.login {
   text-align: center;
 }
 
@@ -260,4 +278,4 @@ nav {
   border-radius: 10px;
   height: 275px;
   margin: auto;
-}
+}*/
