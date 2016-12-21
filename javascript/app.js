@@ -1,4 +1,4 @@
-$(function(){
+$(document).ready(function (){
 	//console.log('loaded')
 $('.content').load('home.html');
 
@@ -24,8 +24,8 @@ $('.content').load('home.html');
 	      if (error) {
 	        // Handle error
 	        return;
-	      };  
-	     // getUser(profile);     
+	      };
+	     // getUser(profile);
 	  console.log(authResult.idToken);
 	  console.log(profile);
       localStorage.setItem('id_token', authResult.idToken);
@@ -51,7 +51,7 @@ $('.content').load('home.html');
 		request.done(function(res){
 		console.log('page loaded: ', res);
 		//$('.content').html(doner_homepage.html);
-		
+
 		if(res === 'donerhtml'){
 			callPage('donorlanding.html')
 			} else if (res === 'charhtml'){
