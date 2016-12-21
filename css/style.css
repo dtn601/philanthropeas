@@ -7,8 +7,8 @@ title {
 
 h1 {
   font-family: 'Droid Sans', sans-serif;
-  color: #00000B
-  font-size: 50px;
+  color: #00000B;
+  font-size: 40px;
   text-transform: uppercase;
   line-height: 1;
   padding: 20px 0px;
@@ -61,7 +61,7 @@ nav {
 
 .blue {
   background-color: #6A8EAE;
-  height: 125;
+  height: 70px;
 }
 
 .avatar {
@@ -112,8 +112,6 @@ nav {
 .inner_containers {
     margin: 30px;
     padding: 15px;
-    border-radius: 10px;
-
 }
 
 /*boxes will vary and same content */
@@ -123,6 +121,7 @@ nav {
     background-color: #6A8EAE;
     padding: 15px;
     display: inline-block;
+    border-radius: 15px;
 }
 
 /*-------------- New Account ----------------*/
