@@ -1,63 +1,52 @@
-<div class="favorites">
-  <div>
-    <h1>FAVORITES</h1>
-    <button type="button" name="button">MAP</button>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <button type="button" name="Browse">Browse Similar Charities</button>
-</div>
-</div>
+<div class="green_container">
 
-    <div class="featured">
-      <h1>FEATURED CHARITY</h1>
-      <!-- Random or editable featured charity -->
-      <button type="button" name="Contact">CONTACT</button>
-      <button type="button" name="Favorite">FAVORITE</button>
-    </div>
-
-    <div class="profile_info"
-    <!--profile information submission with option to edit-->
-      <form class="" action="index.html" method="post">
-        <input type="text" name="Full Name" placeholder="FULL NAME"></input>
-        <input type="text" name="Email" placeholder="EMAIL"></input>
-        <input type="text" name="Street Address" placeholder="STREET ADDRESS"></input>
-        <input type="text" name="State" placeholder="STATE"></input>
-        <input type="text" name="Zip" placeholder="Zip"></input>
-    </div>
-
+  <div class="inner_containers">
     <div>
-      I am interested in the following causes:
+      <h1>FAVORITES</h1>
+      <button type="button" name="button">MAP</button>
       <ul>
-        <li><input type="radio" value="Homeless">Homeless</input>
-        </li>
-        <li><input type="radio" value="Seniors">Seniors</input>
-        </li>
-        <li><input type="radio" value="Refugees">Refugees</input>
-        </li>
-        <li><input type="radio" value="Disaster Relief">Disaster Relief</input>
-        </li>
-        <li> <input type="radio" value="Veterans">Veterans</input>
-        </li>
-        <li><input type="radio" value="Faith Based">Faith Based</input>
-        </li>
-        <li> <input type="radio" value="No Preference">No Preference</input>
-        </li>
+        <li class="favorites">need an image<button type="button" name="more">More info</button><button type="button" name="remove">Remove</button></li>
+        <li class="favorites">need an image<button type="button" name="more">More info</button><button type="button" name="remove">Remove</button></li>
+        <li class="favorites">need an image<button type="button" name="more">More info</button><button type="button" name="remove">Remove</button></li>
       </ul>
+      <button type="button" name="Browse">Browse Similar Charities</button>
+      </div>
     </div>
 
-    <div>
-      When I search for a charity or a non-profit, ______ is more important to me.
-      <ul>
-        <li><input type="radio" value="Homeless">Charity Mission</input>
-        </li>
-        <li><input type="radio" value="Seniors">Location</input>
-        </li>
-        <li> <input type="radio" value="No Preference">No Preference</input>
-        </li>
-      </ul>
-    </div>
+      <div class="fc_box">
+        <h1>FEATURED CHARITY</h1>
+        <!-- Random or editable featured charity -->
+        <!-- <button type="button" name="Contact">CONTACT</button>
+        <button type="button" name="Favorite">FAVORITE</button> -->
+      </div>
 
-    </form>
+      <div class="inner_content">
+      <!--profile information submission with option to edit-->
+        <form class="" action="index.html" method="post">
+          <input type="text" name="Full Name" placeholder="FULL NAME"></input>
+          <input type="text" name="Email" placeholder="EMAIL"></input>
+          <input type="text" name="Street Address" placeholder="STREET ADDRESS"></input>
+          <input type="text" name="State" placeholder="STATE"></input>
+          <input type="text" name="Zip" placeholder="Zip"></input>
+      </div>
+
+      <div class="white_box">
+        <p>I am interested in the following causes:</p>
+          <input class="radio" type="radio" name="cause" value="homeless">Homeless</input>
+          <input class="radio" type="radio" name="cause" value="refugees">Refugees</input>
+          <input class="radio" type="radio" name="cause" value="veterans">Veterans</input>
+          <input class="radio" type="radio" name="cause" value="seniors">Seniors</input>
+          <input class="radio" type="radio" name="cause" value="disaster Relief">Disaster Relief</input>
+          <input class="radio" type="radio" name="cause" value="faith-Based">Faith-Based</input>
+          <input class="radio" type="radio" name="cause" value="na">No Specific Cause</input>
+        </div>
+
+      <div class="white_box">
+        <p>When I search for a charity or a non-profit, ______ is more important to me.</p>
+        <input class="radio" type="radio" name="cause" value="Charity Mission">Charity Mission</input>
+        <input class="radio" type="radio" name="cause" value="location">Location</input>
+        <input class="radio" type="radio" name="cause" value="na">No Preference</input>
+      </div>
+
+      </form>
+</div>
