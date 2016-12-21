@@ -104,19 +104,15 @@ $('body').on('click','a',function(e){
 	callPage(pageRef)
 });
 
-$('body').on('click','.donorLogin',function(e){
+$('body').on('click','.donor_login',function(e){
 	e.preventDefault();
 	console.log('clicked')
-	var pageRef = 'donorlogin.html';
-	console.log(pageRef)
-	callPage(pageRef)
+	callPage('newdonor.html')
 });
 
-$('body').on('click','.charityLogin',function(e){
+$('body').on('click','.charity_login',function(e){
 	e.preventDefault();
-	var pageRef = 'charitylogin.html'
-	console.log(pageRef)
-	callPage(pageRef)
+	callPage('newcharity.html')
 });
 
 function getUser(profile){
