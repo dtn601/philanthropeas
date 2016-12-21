@@ -53,9 +53,9 @@ $('.content').load('home.html');
 		//$('.content').html(doner_homepage.html);
 		
 		if(res === 'donerhtml'){
-			callPage('donor_homepage.html')
+			callPage('donorlanding.html')
 			} else if (res === 'charhtml'){
-				callPage('charity_home_logged_in.html')
+				callPage('charitylanding.html')
 					} else { callPage('newaccount.html')
 							}
 		});
