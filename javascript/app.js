@@ -353,5 +353,4 @@ function showCharity(){
 
 
 
-//final closer
 });
