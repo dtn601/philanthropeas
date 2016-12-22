@@ -34,7 +34,6 @@ $('.content').load('home.html');
       // Display user information
       show_profile_info(profile);
       validateUser();
-      showDonor();
 	    });
 	  });
 //this is call back to backend - front
@@ -56,10 +55,13 @@ $('.content').load('home.html');
 		//$('.content').html(doner_homepage.html);
 
 		if(res === 'donerhtml'){
-			callPage('donorlanding.html')
+			callPage('donorlanding.html');
+			showDonor();
 			} else if (res === 'charhtml'){
 				callPage('charitylanding.html')
 					} else { callPage('newaccount.html')
+
+		
 							}
 		});
 
@@ -196,37 +198,25 @@ function newDonor(){
 
 function showDonor(){
 	var idToken = localStorage.getItem('id_token');
-	var fullName = $('.fullName').val(fullName),
-		email = $('.email').val(email),
-		address = $('.address').val(address),
-		city = $('.city').val(city),
-		state = $('.state').val(state),
-		zip = $('.zip').val(zip),
-		importance = $('.importance').val(importance),
-		cause = $('.cause').val(cause),
-		userId = localStorage.getItem('userId')	
-	$.ajax({
-		url: 'http://localhost:3000/dbapi',
-        method: 'GET',
-        headers: {
-          'Authorization': 'Bearer ' + idToken
-        }
-
-        // data: {
-        // 	fullName: fullName,
-        // 	email: email,
-        // 	address: address,
-        // 	city: city,
-        // 	state: state,
-        // 	zip: zip,
-        // 	importance: importance,
-        // 	cause: cause,
-        // 	userId:	userId
-        // }
-	});
-	   request.done(function(res){
-        	console.log(res);
-        });
+	var request = $.ajax({
+						url: 'http://localhost:3000/dbapi/getdonor',
+				        method: 'GET',
+				        headers: {
+				          'Authorization': 'Bearer ' + idToken
+				        }
+		});
+		request.done(function(res){
+				var //fullName = $('.fullName').val(res.fullName),
+				email = $('.email').val(email),
+				address = $('.address').val(address),
+				city = $('.city').val(city),
+				state = $('.state').val(state),
+				zip = $('.zip').val(zip),
+				importance = $('.importance').val(importance),
+				cause = $('.cause').val(cause),
+				localStorage.setItem('id', res._id);
+	        $('form').find('.fullName').val(res.fullName)
+	    });
 
 };
 
@@ -249,15 +239,12 @@ function editDonor(){
           'Authorization': 'Bearer ' + idToken
         },
         data: {
+        	id: localStorage.getItem('id'),
         	fullName: fullName,
-        	email: email,
         	address: address,
         	city: city,
         	state: state,
-        	zip: zip,
-        	importance: importance,
-        	cause: cause,
-        	userId:	userId
+        	zip: zip
         }
 	});
 
