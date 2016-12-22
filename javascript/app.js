@@ -159,6 +159,7 @@ function newDonor(){
 	var fullName = $('.fullName').val(),
 		email = $('.email').val(),
 		address = $('.address').val(),
+		city = $('.city').val(),
 		state = $('.state').val(),
 		zip = $('.zip').val(),
 		importance = $('.importance').val(),
@@ -174,6 +175,7 @@ function newDonor(){
         	fullName: fullName,
         	email: email,
         	address: address,
+        	city: city,
         	state: state,
         	zip: zip,
         	importance: importance,
@@ -184,70 +186,117 @@ function newDonor(){
 
 };
 
+function showDoner(){
+// 	var idToken = localStorage.getItem('id_token');
+// 	var fullName = $('.fullName').val(fullName),
+// 		email = $('.email').val(email),
+// 		address = $('.address').val(address),
+// 		city = $('.city').val(city),
+// 		state = $('.state').val(state),
+// 		zip = $('.zip').val(zip),
+// 		importance = $('.importance').val(importance),
+// 		cause = $('.cause').val(cause),
+// 		userId = localStorage.getItem('userId')	
+// 	$.ajax({
+// 		url: 'http://localhost:3000/dbapi',
+//         method: 'GET',
+//         headers: {
+//           'Authorization': 'Bearer ' + idToken
+//         }
+
+//         // data: {
+//         // 	fullName: fullName,
+//         // 	email: email,
+//         // 	address: address,
+//         // 	city: city,
+//         // 	state: state,
+//         // 	zip: zip,
+//         // 	importance: importance,
+//         // 	cause: cause,
+//         // 	userId:	userId
+//         // }
+//         request.done(function(e){
+        	
+//         })
+
+// 	});
+
+// };
+}
+
 function editDonor(){
-	var idToken = localStorage.getItem('id_token');
-	var fullName = $('.fullName').val(),
-		email = $('.email').val(),
-		address = $('.address').val(),
-		state = $('.state').val(),
-		zip = $('.zip').val(),
-		importance = $('.importance').val(),
-		cause = $('.cause').val(),
-		userId = localStorage.getItem('userId')
-	$.ajax({
-		url: 'http://localhost:3000/dbapi',
-        method: 'PUT',
-        headers: {
-          'Authorization': 'Bearer ' + idToken
-        },
-        data: {
-        	fullName: fullName,
-        	email: email,
-        	address: address,
-        	state: state,
-        	zip: zip,
-        	importance: importance,
-        	cause: cause,
-        	userId:	userId
-        }
-	});
+	// var idToken = localStorage.getItem('id_token');
+	// var fullName = $('.fullName').val(),
+	// 	email = $('.email').val(),
+	// 	address = $('.address').val(),
+	// 	city = $('.city').val(),
+	// 	state = $('.state').val(),
+	// 	zip = $('.zip').val(),
+	// 	importance = $('.importance').val(),
+	// 	cause = $('.cause').val(),
+	// 	userId = localStorage.getItem('userId')
+	// $.ajax({
+	// 	url: 'http://localhost:3000/dbapi',
+ //        method: 'PUT',
+ //        headers: {
+ //          'Authorization': 'Bearer ' + idToken
+ //        },
+ //        data: {
+ //        	fullName: fullName,
+ //        	email: email,
+ //        	address: address,
+ //        	city: city,
+ //        	state: state,
+ //        	zip: zip,
+ //        	importance: importance,
+ //        	cause: cause,
+ //        	userId:	userId
+ //        }
+	// });
 
 };
 
 function newCharity(){
 	var idToken = localStorage.getItem('id_token');
-	var fullName = $('.fullName').val(),
+	var charityName = $('.charityName').val(),
 		email = $('.email').val(),
 		address = $('.address').val(),
+		city = $('.city').val(),
 		state = $('.state').val(),
 		zip = $('.zip').val(),
-		importance = $('.importance').val(),
+		dropOff = $('.dropOff').val(),
 		cause = $('.cause').val(),
-		userId = localStorage.getItem('userId')
+		needs = $('.needs').val(),
+		limitations = $('.limitations').val(),
+		instructions = $('.instructions').val()
 	$.ajax({
-		url: 'http://localhost:3000/dbapi',
+		url: 'http://localhost:3000/charityapi',
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + idToken
         },
         data: {
-        	fullName: fullName,
+        	charity: charityName,
         	email: email,
         	address: address,
+			city: city,
         	state: state,
         	zip: zip,
-        	importance: importance,
-        	cause: cause,
-        	userId:	userId
+        	dropoff: dropOff,
+			cause: cause,
+			needs: needs,
+			limitations: limitations,
+			instructions: instructions
         }
 	});
 
 };
 
+
+
+
+
+
+
 });
 
-
-
-
-
-;

@@ -3,49 +3,33 @@
 		<div>
 			<h3>Create Charity Profile</h3>
 			<form>
-				<input type="text" name="charity" placeholder="Charity/Nonprofit Name">
-				<input type="email" name="email" placeholder="Email">
-				<input type="text" name="address" placeholder="Office Address">
-				<input type="text" name="city" placeholder="City">
-				<input type="text" name="state" placeholder="State">
-				<input type="text" name="zip" placeholder="Zip">
-				<input type="text" name="dropoff" placeholder="Donation Drop-off Address">
+				<input class="charityName" type="text" name="charity" placeholder="Charity/Nonprofit Name">
+				<input class="email" type="email" name="email" placeholder="Email">
+				<input class="address" type="text" name="address" placeholder="Office Address">
+				<input class="city" type="text" name="city" placeholder="City">
+				<input class="state" type="text" name="state" placeholder="State">
+				<input class="zip" type="text" name="zip" placeholder="Zip">
+				<input class="dropOff" type="text" name="dropoff" placeholder="Donation Drop-off Address">
 				<div class="white_container">
 					<div class="white_box">
 						<p>Choose Charity/Nonprofile Cause:</p>
-						<input class="radio" type="radio" name="cause" value="homeless">Homeless
-						<input class="radio" type="radio" name="cause" value="refugees">Refugees
-						<input class="radio" type="radio" name="cause" value="veterans">Veterans
-						<input class="radio" type="radio" name="cause" value="seniors">Seniors
-						<input class="radio" type="radio" name="cause" value="disaster Relief">Disaster Relief
-						<input class="radio" type="radio" name="cause" value="faith-Based">Faith-Based
-						<input class="radio" type="radio" name="cause" value="na">No Specific Cause
-					</div>
-
-					<div class="white_box">
-						<p>Choose Charity/Nonprofile Cause:</p>
-						<input class ="checkbox" type="checkbox" name="time" value="24">24 Hour Drop-off
-						<input class ="checkbox" type="checkbox" name="time" value="mon">M
-						<input class ="checkbox" type="checkbox" name="time" value="tues">T
-						<input class ="checkbox" type="checkbox" name="time" value="wed">W
-						<input class ="checkbox" type="checkbox" name="time" value="thur">T
-						<input class ="checkbox" type="checkbox" name="time" value="fri">F
-						<input class ="checkbox" type="checkbox" name="time" value="sat">S
-						<input class ="checkbox" type="checkbox" name="time" value="sun">S
-						<input type="text" name="am">AM -
-						<input type="text" name="pm">PM
+						<input class="cause" type="radio" name="cause" value="homeless">Homeless
+						<input class="cause" type="radio" name="cause" value="refugees">Refugees
+						<input class="cause" type="radio" name="cause" value="veterans">Veterans
+						<input class="cause" type="radio" name="cause" value="seniors">Seniors
+						<input class="cause" type="radio" name="cause" value="disaster Relief">Disaster Relief
+						<input class="cause" type="radio" name="cause" value="faith-Based">Faith-Based
+						<input class="cause" type="radio" name="cause" value="na">No Specific Cause
 					</div>
 				</div>
 
 				<h4>List of Food Needs:</h4>
-					<textarea class="textarea" name="needs" value="" cols="40" rows="8" placeholder="Items you want donated seperated by a comma"></textarea>
+					<textarea class="needs" name="needs" value="" cols="40" rows="8" placeholder="Items you want donated seperated by a comma"></textarea>
 				<h4>List of Food Limitations:</h4>
-					<textarea class="textarea" name="limitations" value="" cols="40" rows="8" placeholder="Items you don't want donated seperated by a comma"></textarea>
+					<textarea class="limitations" name="limitations" value="" cols="40" rows="8" placeholder="Items you don't want donated seperated by a comma"></textarea>
 				<h4>Special Instructions</h4>
-					<textarea class="textarea" name="instructions" value="" cols="40" rows="8" placeholder="Special Instructions"></textarea>
-				<h4>Charity Descrption, Events, Etc.</h4>
-					<textarea class="textarea" name="description" value="" cols="40" rows="8" placeholder="Charity Descrption, Events, Etc."></textarea>
-				<input type="submit" value="CREATE!">
+					<textarea class="instructions" name="instructions" value="" cols="40" rows="8" placeholder="Special Instructions"></textarea>
+				<input type="submit" id="newcharity" value="CREATE!">
 			</form>
 		</div>
 	</div>
