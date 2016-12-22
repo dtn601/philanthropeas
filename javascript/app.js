@@ -2,6 +2,7 @@ $(document).ready(function (){
 	//console.log('loaded')
 $('.content').load('home.html');
 
+
 	var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
 		auth: {
 			params: { scope: 'openid email' } //Details: https://auth0.com/docs/scopes
@@ -54,10 +55,13 @@ $('.content').load('home.html');
 		//$('.content').html(doner_homepage.html);
 
 		if(res === 'donerhtml'){
-			callPage('donorlanding.html')
+			callPage('donorlanding.html');
+			showDonor();
 			} else if (res === 'charhtml'){
 				callPage('charitylanding.html')
 					} else { callPage('newaccount.html')
+
+		
 							}
 		});
 
@@ -123,11 +127,16 @@ $('body').on('click','#newdonor',function(e){
 $('body').on('click', '#editdonor', function(e){
 	e.preventDefault();
 	editDonor();
-})
+});
 
 $('body').on('click','#newcharity',function(e){
 	e.preventDefault();
 	newCharity();
+});
+
+$('body').on('click','#editcharity',function(e){
+	e.preventDefault();
+	editCharity();
 });
 
 function callPage(pageRefInput){
@@ -186,73 +195,58 @@ function newDonor(){
 
 };
 
-function showDoner(){
-// 	var idToken = localStorage.getItem('id_token');
-// 	var fullName = $('.fullName').val(fullName),
-// 		email = $('.email').val(email),
-// 		address = $('.address').val(address),
-// 		city = $('.city').val(city),
-// 		state = $('.state').val(state),
-// 		zip = $('.zip').val(zip),
-// 		importance = $('.importance').val(importance),
-// 		cause = $('.cause').val(cause),
-// 		userId = localStorage.getItem('userId')	
-// 	$.ajax({
-// 		url: 'http://localhost:3000/dbapi',
-//         method: 'GET',
-//         headers: {
-//           'Authorization': 'Bearer ' + idToken
-//         }
 
-//         // data: {
-//         // 	fullName: fullName,
-//         // 	email: email,
-//         // 	address: address,
-//         // 	city: city,
-//         // 	state: state,
-//         // 	zip: zip,
-//         // 	importance: importance,
-//         // 	cause: cause,
-//         // 	userId:	userId
-//         // }
-//         request.done(function(e){
-        	
-//         })
+function showDonor(){
+	var idToken = localStorage.getItem('id_token');
+	var request = $.ajax({
+						url: 'http://localhost:3000/dbapi/getdonor',
+				        method: 'GET',
+				        headers: {
+				          'Authorization': 'Bearer ' + idToken
+				        }
+		});
+		request.done(function(res){
+				var //fullName = $('.fullName').val(res.fullName),
+				email = $('.email').val(email),
+				address = $('.address').val(address),
+				city = $('.city').val(city),
+				state = $('.state').val(state),
+				zip = $('.zip').val(zip),
+				importance = $('.importance').val(importance),
+				cause = $('.cause').val(cause),
+				localStorage.setItem('id', res._id);
+	        $('form').find('.fullName').val(res.fullName)
+	    });
 
-// 	});
+};
 
-// };
-}
 
 function editDonor(){
-	// var idToken = localStorage.getItem('id_token');
-	// var fullName = $('.fullName').val(),
-	// 	email = $('.email').val(),
-	// 	address = $('.address').val(),
-	// 	city = $('.city').val(),
-	// 	state = $('.state').val(),
-	// 	zip = $('.zip').val(),
-	// 	importance = $('.importance').val(),
-	// 	cause = $('.cause').val(),
-	// 	userId = localStorage.getItem('userId')
-	// $.ajax({
-	// 	url: 'http://localhost:3000/dbapi',
- //        method: 'PUT',
- //        headers: {
- //          'Authorization': 'Bearer ' + idToken
- //        },
- //        data: {
- //        	fullName: fullName,
- //        	email: email,
- //        	address: address,
- //        	city: city,
- //        	state: state,
- //        	zip: zip,
- //        	importance: importance,
- //        	cause: cause,
- //        	userId:	userId
- //        }
-	// });
+	var idToken = localStorage.getItem('id_token');
+	var fullName = $('.fullName').val(),
+		email = $('.email').val(),
+		address = $('.address').val(),
+		city = $('.city').val(),
+		state = $('.state').val(),
+		zip = $('.zip').val(),
+		importance = $('.importance').val(),
+		cause = $('.cause').val(),
+		userId = localStorage.getItem('userId')
+	$.ajax({
+		url: 'http://localhost:3000/dbapi',
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        },
+        data: {
+        	id: localStorage.getItem('id'),
+        	fullName: fullName,
+        	address: address,
+        	city: city,
+        	state: state,
+        	zip: zip
+        }
+	});
 
 };
 
@@ -279,14 +273,85 @@ function newCharity(){
         	charity: charityName,
         	email: email,
         	address: address,
-			city: city,
+					city: city,
         	state: state,
         	zip: zip,
         	dropoff: dropOff,
-			cause: cause,
-			needs: needs,
-			limitations: limitations,
-			instructions: instructions
+					cause: cause,
+					needs: needs,
+					limitations: limitations,
+					instructions: instructions
+        }
+	});
+
+};
+function editCharity(){
+	var idToken = localStorage.getItem('id_token');
+	var charityName = $('.charityName').val(),
+		email = $('.email').val(),
+		address = $('.address').val(),
+		city = $('.city').val(),
+		state = $('.state').val(),
+		zip = $('.zip').val(),
+		dropOff = $('.dropOff').val(),
+		cause = $('.cause').val(),
+		needs = $('.needs').val(),
+		limitations = $('.limitations').val(),
+		instructions = $('.instructions').val()
+	$.ajax({
+		url: 'http://localhost:3000/charityapi',
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        },
+        data: {
+        	charity: charityName,
+        	email: email,
+        	address: address,
+					city: city,
+        	state: state,
+        	zip: zip,
+        	dropoff: dropOff,
+					cause: cause,
+					needs: needs,
+					limitations: limitations,
+					instructions: instructions
+        }
+	});
+
+};
+function showCharity(){
+	var idToken = localStorage.getItem('id_token');
+	var charityName = $('.charityName').val(),
+
+		email = $('.email').val(),
+		address = $('.address').val(),
+		city = $('.city').val(),
+		state = $('.state').val(),
+		zip = $('.zip').val(),
+		dropOff = $('.dropOff').val(),
+		cause = $('.cause').val(),
+		needs = $('.needs').val(),
+		limitations = $('.limitations').val(),
+		instructions = $('.instructions').val()
+	$.ajax({
+		url: 'http://localhost:3000/charityapi',
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        },
+        data: {
+        	charity: charityName,
+        	email: email,
+        	address: address,
+					city: city,
+        	state: state,
+        	zip: zip,
+        	dropoff: dropOff,
+					cause: cause,
+					needs: needs,
+					limitations: limitations,
+					instructions: instructions
         }
 	});
 
@@ -294,9 +359,5 @@ function newCharity(){
 
 
 
-
-
-
-
+//final closer
 });
-
