@@ -51,6 +51,17 @@ p {
   line-height: 1;
 }
 
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+input, textarea {
+    display: block;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+}
 /*----TempCSS---*/
 nav {
     display: inline-block;
@@ -112,17 +123,38 @@ nav {
 .inner_containers {
     margin: 30px;
     padding: 15px;
+
 }
 
 /*boxes will vary and same content */
 .inner_content {
     text-align: left;
-    margin: 15px;
+    margin: 10px;
     background-color: #6A8EAE;
     padding: 15px;
-    display: inline-block;
     border-radius: 15px;
 }
+.tipssection {
+    display: inline-block;
+    margin: 20px;
+    text-align: left;
+    width: 45%;
+}
+
+.donations {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+
+}
+.green_container {
+     background-color: #57A773;
+    opacity: 0.7;
+
+}
+
+
+
 
 /*-------------- New Account ----------------*/
 
