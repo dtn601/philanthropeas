@@ -163,12 +163,13 @@ nav {
 text-align: center;
 /*padding: 250px 50px 20px 50px;*/
 padding: 1px;
-float: left;
+padding-left: 12%;
+display: inline-block;
 
 }
 
 .donor_login {
-    float: left;
+
     text-align: center;
     font-size: 30px;
     background-color: #57A773;
@@ -176,15 +177,12 @@ float: left;
     height: 175px;
     width: 325px;
     border-radius: 15px;
-    position: absolute;
-    margin-top: 12%;
-    margin-left: 51%;
+    margin: 30px;
     padding: 10px;
     display: inline-block;
 }
 
 .charity_login {
-    float: left;
     text-align: center;
     font-size: 30px;
     background-color: #9BD1E5;
@@ -192,12 +190,14 @@ float: left;
     height: 175px;
     width: 325px;
     border-radius: 15px;
-    position: absolute;
-    margin-top: 12%;
-    margin-left: 23%;
+    margin: 40px;
     padding: 10px;
     display: inline-block;
 }
+
+/*clear.donor_login {
+  clear: both;h
+}*/
 
 
 /*-------------- New Donor ----------------*/
