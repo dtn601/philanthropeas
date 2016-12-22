@@ -276,17 +276,17 @@ function newCharity(){
           'Authorization': 'Bearer ' + idToken
         },
         data: {
-        	charityName: charityName,
+        	charity: charityName,
         	email: email,
         	address: address,
-					city: city,
+			city: city,
         	state: state,
         	zip: zip,
-        	dropOff: dropOff,
-					cause: cause,
-					needs: needs,
-					limitations: limitations,
-					instructions: instructions
+        	dropoff: dropOff,
+			cause: cause,
+			needs: needs,
+			limitations: limitations,
+			instructions: instructions
         }
 	});
 
