@@ -134,6 +134,7 @@ $('body').on('click', '#editdonor', function(e){
 $('body').on('click','#newcharity',function(e){
 	e.preventDefault();
 	newCharity();
+	callPage('charitylanding.html');
 });
 
 $('body').on('click','#editcharity',function(e){
@@ -152,7 +153,7 @@ function callPage(pageRefInput){
 			$('.content').html(res);
 			showDonor();
 			showCharity();
-
+		},
 		error: function(err) {
 			console.log('page not loaded: ', err)
 		},
