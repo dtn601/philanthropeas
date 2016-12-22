@@ -29,6 +29,7 @@ $('.content').load('home.html');
 	  console.log(authResult.idToken);
 	  console.log(profile);
       localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('userId', profile.user_id);
       // Display user information
       show_profile_info(profile);
       validateUser();
@@ -65,7 +66,6 @@ $('.content').load('home.html');
         // 	location.replace('/newaccount.html');
         // }
 	};
-
 
   //retrieve the profile:
   var retrieve_profile = function() {
@@ -115,32 +115,141 @@ $('body').on('click','.charity_login',function(e){
 	callPage('newcharity.html')
 });
 
-function getUser(profile){
-	// make ajax call to express and get user info
-}
+$('body').on('click','#newdonor',function(e){
+	e.preventDefault();
+	newDonor();
+});
 
+$('body').on('click', '#editdonor', function(e){
+	e.preventDefault();
+	editDonor();
+})
+
+$('body').on('click','#newcharity',function(e){
+	e.preventDefault();
+	newCharity();
+});
 
 function callPage(pageRefInput){
 
-$.ajax({
-	url: pageRefInput,
-	type: 'GET',
-	dataType: 'html',
+	$.ajax({
+		url: pageRefInput,
+		type: 'GET',
+		dataType: 'html',
 
-	success: function(res){
-		console.log('page loaded: ', res);
-		$('.content').html(res);
-	},
+		success: function(res){
+			console.log('page loaded: ', res);
+			$('.content').html(res);
+		},
 
-	error: function(err) {
-		console.log('page not loaded: ', err)
-	},
+		error: function(err) {
+			console.log('page not loaded: ', err)
+		},
 
-	complete: function( xhr, status) {
-		console.log('completed request')
-	}
+		complete: function( xhr, status) {
+			console.log('completed request')
+		}
 
-});
+	});
 
 }
+
+function newDonor(){
+	var idToken = localStorage.getItem('id_token');
+	var fullName = $('.fullName').val(),
+		email = $('.email').val(),
+		address = $('.address').val(),
+		state = $('.state').val(),
+		zip = $('.zip').val(),
+		importance = $('.importance').val(),
+		cause = $('.cause').val(),
+		userId = localStorage.getItem('userId')
+	$.ajax({
+		url: 'http://localhost:3000/dbapi',
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        },
+        data: {
+        	fullName: fullName,
+        	email: email,
+        	address: address,
+        	state: state,
+        	zip: zip,
+        	importance: importance,
+        	cause: cause,
+        	userId:	userId
+        }
+	});
+
+};
+
+function editDonor(){
+	var idToken = localStorage.getItem('id_token');
+	var fullName = $('.fullName').val(),
+		email = $('.email').val(),
+		address = $('.address').val(),
+		state = $('.state').val(),
+		zip = $('.zip').val(),
+		importance = $('.importance').val(),
+		cause = $('.cause').val(),
+		userId = localStorage.getItem('userId')
+	$.ajax({
+		url: 'http://localhost:3000/dbapi',
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        },
+        data: {
+        	fullName: fullName,
+        	email: email,
+        	address: address,
+        	state: state,
+        	zip: zip,
+        	importance: importance,
+        	cause: cause,
+        	userId:	userId
+        }
+	});
+
+};
+
+function newCharity(){
+	var idToken = localStorage.getItem('id_token');
+	var fullName = $('.fullName').val(),
+		email = $('.email').val(),
+		address = $('.address').val(),
+		state = $('.state').val(),
+		zip = $('.zip').val(),
+		importance = $('.importance').val(),
+		cause = $('.cause').val(),
+		userId = localStorage.getItem('userId')
+	$.ajax({
+		url: 'http://localhost:3000/dbapi',
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        },
+        data: {
+        	fullName: fullName,
+        	email: email,
+        	address: address,
+        	state: state,
+        	zip: zip,
+        	importance: importance,
+        	cause: cause,
+        	userId:	userId
+        }
+	});
+
+};
+
+};
+
+
+
+
+
 });
+
+
