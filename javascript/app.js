@@ -40,7 +40,7 @@ $('.content').load('home.html');
   var validateUser = function(){
       var idToken = localStorage.getItem('id_token');
       var request = $.ajax({
-        url: 'http://localhost:3000/dbapi',
+        url: 'https://philanthropeas.herokuapp.com//dbapi',
         method: 'GET',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -177,7 +177,7 @@ function newDonor(){
 		cause = $('.cause').val(),
 		userId = localStorage.getItem('userId')
 	$.ajax({
-		url: 'http://localhost:3000/dbapi',
+		url: 'https://philanthropeas.herokuapp.com/dbapi',
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -201,7 +201,7 @@ function newDonor(){
 function showDonor(){
 	var idToken = localStorage.getItem('id_token');
 	var request = $.ajax({
-						url: 'http://localhost:3000/dbapi/getdonor',
+						url: 'https://philanthropeas.herokuapp.com/dbapi/getdonor',
 				        method: 'GET',
 				        headers: {
 				          'Authorization': 'Bearer ' + idToken
@@ -243,7 +243,7 @@ function editDonor(){
 		userId = localStorage.getItem('userId'),
 		id = localStorage.getItem('id')
 	$.ajax({
-		url: 'http://localhost:3000/dbapi',
+		url: 'https://philanthropeas.herokuapp.com/dbapi',
         method: 'PUT',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -274,7 +274,7 @@ function newCharity(){
 		limitations = $('.limitations').val(),
 		instructions = $('.instructions').val()
 	$.ajax({
-		url: 'http://localhost:3000/charityapi',
+		url: 'https://philanthropeas.herokuapp.com/charityapi',
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -309,7 +309,7 @@ function editCharity(){
 		limitations = $('.limitations').val(),
 		instructions = $('.instructions').val()
 	$.ajax({
-		url: 'http://localhost:3000/charityapi',
+		url: 'https://philanthropeas.herokuapp.com/charityapi',
         method: 'PUT',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -333,7 +333,7 @@ function editCharity(){
 function showCharity(){
 	var idToken = localStorage.getItem('id_token');
 	var request = $.ajax({
-						url: 'http://localhost:3000/charityapi',
+						url: 'https://philanthropeas.herokuapp.com/charityapi',
 				        method: 'GET',
 				        headers: {
 				          'Authorization': 'Bearer ' + idToken
