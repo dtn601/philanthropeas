@@ -61,7 +61,7 @@ $('.content').load('home.html');
 				callPage('charitylanding.html')
 					} else { callPage('newaccount.html')
 
-		
+
 							}
 		});
 
@@ -206,16 +206,23 @@ function showDonor(){
 				        }
 		});
 		request.done(function(res){
-				var //fullName = $('.fullName').val(res.fullName),
-				email = $('.email').val(email),
-				address = $('.address').val(address),
-				city = $('.city').val(city),
-				state = $('.state').val(state),
-				zip = $('.zip').val(zip),
-				importance = $('.importance').val(importance),
-				cause = $('.cause').val(cause),
-				localStorage.setItem('id', res._id);
-	        $('form').find('.fullName').val(res.fullName)
+				var fullName = res.fullName;
+						address = res.address,
+						city = res.city,
+						state = res.state,
+						zip = res.zip,
+						cause = res.cause,
+						importance = res.importance
+
+						localStorage.setItem('id', res._id);
+	        	$('form').find('.fullName').val(fullName);
+						$('form').find('.address').val(address);
+						$('form').find('.city').val(city);
+						$('form').find('.state').val(state);
+						$('form').find('.zip').val(zip);
+						$('form').find('.cause').val(cause);
+						$('form').find('.importance').val(importance);
+
 	    });
 
 };
@@ -231,7 +238,8 @@ function editDonor(){
 		zip = $('.zip').val(),
 		importance = $('.importance').val(),
 		cause = $('.cause').val(),
-		userId = localStorage.getItem('userId')
+		userId = localStorage.getItem('userId'),
+		id = localStorage.getItem('id')
 	$.ajax({
 		url: 'http://localhost:3000/dbapi',
         method: 'PUT',
