@@ -61,7 +61,7 @@ $('.content').load('home.html');
 				callPage('charitylanding.html')
 					} else { callPage('newaccount.html')
 
-		
+
 							}
 		});
 
