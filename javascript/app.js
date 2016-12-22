@@ -122,7 +122,8 @@ $('body').on('click','.charity_login',function(e){
 $('body').on('click','#newdonor',function(e){
 	e.preventDefault();
 	newDonor();
-	callPage('donorlanding.html')
+	callPage ('donorlanding.html');
+
 });
 
 $('body').on('click', '#editdonor', function(e){
@@ -151,7 +152,6 @@ function callPage(pageRefInput){
 			$('.content').html(res);
 			showDonor();
 			showCharity();
-		},
 
 		error: function(err) {
 			console.log('page not loaded: ', err)
@@ -207,7 +207,8 @@ function showDonor(){
 				        }
 		});
 		request.done(function(res){
-				var fullName = res.fullName;
+			console.log(res)
+				var fullName = res.fullName,
 						address = res.address,
 						city = res.city,
 						state = res.state,
