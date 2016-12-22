@@ -161,10 +161,14 @@ nav {
 
 .main_box {
 text-align: center;
-padding: 250px 50px 20px 50px;
+/*padding: 250px 50px 20px 50px;*/
+padding: 1px;
+float: left;
+
 }
 
 .donor_login {
+    float: left;
     text-align: center;
     font-size: 30px;
     background-color: #57A773;
@@ -180,6 +184,7 @@ padding: 250px 50px 20px 50px;
 }
 
 .charity_login {
+    float: left;
     text-align: center;
     font-size: 30px;
     background-color: #9BD1E5;
