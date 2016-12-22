@@ -40,7 +40,7 @@ $('.content').load('home.html');
   var validateUser = function(){
       var idToken = localStorage.getItem('id_token');
       var request = $.ajax({
-        url: 'https://philanthropeas.herokuapp.com//dbapi',
+        url: 'https://philanthropeas.herokuapp.com/dbapi',
         method: 'GET',
         headers: {
           'Authorization': 'Bearer ' + idToken
