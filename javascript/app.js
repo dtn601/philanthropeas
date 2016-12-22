@@ -2,6 +2,7 @@ $(document).ready(function (){
 	//console.log('loaded')
 $('.content').load('home.html');
 
+
 	var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
 		auth: {
 			params: { scope: 'openid email' } //Details: https://auth0.com/docs/scopes
@@ -33,6 +34,7 @@ $('.content').load('home.html');
       // Display user information
       show_profile_info(profile);
       validateUser();
+      showDonor();
 	    });
 	  });
 //this is call back to backend - front
@@ -191,73 +193,73 @@ function newDonor(){
 
 };
 
-function showDoner(){
-// 	var idToken = localStorage.getItem('id_token');
-// 	var fullName = $('.fullName').val(fullName),
-// 		email = $('.email').val(email),
-// 		address = $('.address').val(address),
-// 		city = $('.city').val(city),
-// 		state = $('.state').val(state),
-// 		zip = $('.zip').val(zip),
-// 		importance = $('.importance').val(importance),
-// 		cause = $('.cause').val(cause),
-// 		userId = localStorage.getItem('userId')
-// 	$.ajax({
-// 		url: 'http://localhost:3000/dbapi',
-//         method: 'GET',
-//         headers: {
-//           'Authorization': 'Bearer ' + idToken
-//         }
 
-//         // data: {
-//         // 	fullName: fullName,
-//         // 	email: email,
-//         // 	address: address,
-//         // 	city: city,
-//         // 	state: state,
-//         // 	zip: zip,
-//         // 	importance: importance,
-//         // 	cause: cause,
-//         // 	userId:	userId
-//         // }
-//         request.done(function(e){
+function showDonor(){
+	var idToken = localStorage.getItem('id_token');
+	var fullName = $('.fullName').val(fullName),
+		email = $('.email').val(email),
+		address = $('.address').val(address),
+		city = $('.city').val(city),
+		state = $('.state').val(state),
+		zip = $('.zip').val(zip),
+		importance = $('.importance').val(importance),
+		cause = $('.cause').val(cause),
+		userId = localStorage.getItem('userId')	
+	$.ajax({
+		url: 'http://localhost:3000/dbapi',
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        }
 
-//         })
+        // data: {
+        // 	fullName: fullName,
+        // 	email: email,
+        // 	address: address,
+        // 	city: city,
+        // 	state: state,
+        // 	zip: zip,
+        // 	importance: importance,
+        // 	cause: cause,
+        // 	userId:	userId
+        // }
+	});
+	   request.done(function(res){
+        	console.log(res);
+        });
 
-// 	});
+};
 
-// };
-}
 
 function editDonor(){
-	// var idToken = localStorage.getItem('id_token');
-	// var fullName = $('.fullName').val(),
-	// 	email = $('.email').val(),
-	// 	address = $('.address').val(),
-	// 	city = $('.city').val(),
-	// 	state = $('.state').val(),
-	// 	zip = $('.zip').val(),
-	// 	importance = $('.importance').val(),
-	// 	cause = $('.cause').val(),
-	// 	userId = localStorage.getItem('userId')
-	// $.ajax({
-	// 	url: 'http://localhost:3000/dbapi',
- //        method: 'PUT',
- //        headers: {
- //          'Authorization': 'Bearer ' + idToken
- //        },
- //        data: {
- //        	fullName: fullName,
- //        	email: email,
- //        	address: address,
- //        	city: city,
- //        	state: state,
- //        	zip: zip,
- //        	importance: importance,
- //        	cause: cause,
- //        	userId:	userId
- //        }
-	// });
+	var idToken = localStorage.getItem('id_token');
+	var fullName = $('.fullName').val(),
+		email = $('.email').val(),
+		address = $('.address').val(),
+		city = $('.city').val(),
+		state = $('.state').val(),
+		zip = $('.zip').val(),
+		importance = $('.importance').val(),
+		cause = $('.cause').val(),
+		userId = localStorage.getItem('userId')
+	$.ajax({
+		url: 'http://localhost:3000/dbapi',
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        },
+        data: {
+        	fullName: fullName,
+        	email: email,
+        	address: address,
+        	city: city,
+        	state: state,
+        	zip: zip,
+        	importance: importance,
+        	cause: cause,
+        	userId:	userId
+        }
+	});
 
 };
 
