@@ -244,12 +244,10 @@ function newCharity(){
 
 };
 
-};
-
-
-
-
-
 });
 
 
+
+
+
+;
