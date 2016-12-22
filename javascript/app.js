@@ -122,6 +122,7 @@ $('body').on('click','.charity_login',function(e){
 $('body').on('click','#newdonor',function(e){
 	e.preventDefault();
 	newDonor();
+	callPage('donorlanding.html')
 });
 
 $('body').on('click', '#editdonor', function(e){
@@ -148,6 +149,8 @@ function callPage(pageRefInput){
 
 		success: function(res){
 			$('.content').html(res);
+			showDonor();
+			showCharity();
 		},
 
 		error: function(err) {
