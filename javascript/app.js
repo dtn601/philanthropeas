@@ -216,38 +216,44 @@ function editDonor(){
 
 function newCharity(){
 	var idToken = localStorage.getItem('id_token');
-	var fullName = $('.fullName').val(),
+	var charityName = $('.charityName').val(),
 		email = $('.email').val(),
 		address = $('.address').val(),
+		city = $('.city').val(),
 		state = $('.state').val(),
 		zip = $('.zip').val(),
-		importance = $('.importance').val(),
+		dropOff = $('.dropOff').val(),
 		cause = $('.cause').val(),
-		userId = localStorage.getItem('userId')
+		needs = $('.needs').val(),
+		limitations = $('.limitations').val(),
+		instructions = $('.instructions').val()
 	$.ajax({
-		url: 'http://localhost:3000/dbapi',
+		url: 'http://localhost:3000/charityapi',
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + idToken
         },
         data: {
-        	fullName: fullName,
+        	charityName: charityName,
         	email: email,
         	address: address,
+					city: city,
         	state: state,
         	zip: zip,
-        	importance: importance,
-        	cause: cause,
-        	userId:	userId
+        	dropOff: dropOff,
+					cause: cause,
+					needs: needs,
+					limitations: limitations,
+					instructions: instructions
         }
 	});
 
 };
 
+
+
+
+
+
 });
 
-
-
-
-
-;
