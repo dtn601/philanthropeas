@@ -33,7 +33,7 @@ h3 {
 h4 {
   font-family: 'PT Sans', sans-serif;
   color: #00000B;
-  font-size: 18px;
+  font-size: 25px;
   line-height: 1;
 }
 
@@ -69,6 +69,16 @@ nav {
     display: inline-block;
 }
 
+.unmark {
+  list-style-type: none;
+}
+
+.word_heads {
+  font-size: 25px;
+  text-decoration: underline;
+
+}
+
 
 /*-------------- Home updated ----------------*/
 
@@ -86,6 +96,10 @@ nav {
   float: right;
   display: inline;
 }
+.banner {
+  font-size: 20px;
+  text-align: center;
+}
 
 .forms {
     /*email / password*/
@@ -97,26 +111,50 @@ nav {
     height: 350px;
     background-size: cover;
     background-position: center;
+    border-bottom: 2px solid black;
 }
 
 .btn-login {
      background-color: #6A8EAE;
-     padding: 10px;
+     padding: 15px;
      font-family: 'Droid Sans', sans-serif;
      color: #00000B;
      font-size: 24px;
      line-height: 1;
      border-radius: 10px;
+     margin: 130px;
+     margin-left: 650px;
 }
 
-.login {
+.featured_home {
+  background-color: #6A8EAE;
+  text-align: center;
+  border-bottom: 2px solid black;
+  border-radius: 5px;
+}
+
+.feat_charity {
+  background-color: #57A773;
+}
+
+.food_bank_box {
+  display: inline;
+  margin: 20px;
+  width: 150px;
+  margin-left: 50px
+
+}
+
+.desc {
+  font-size: 18px;
+  display: inline-block;
 
 }
 
 /*formerly featured*/
 .outer_container {
     text-align: center;
-    background-color: #57A773;
+    background-color: #6A8EAE;
     /*padding-top: 2px;*/
 }
 
@@ -124,6 +162,7 @@ nav {
 /*container colors and radius*/
 .inner_containers {
     margin: 30px;
+    margin-top: 0px;
     padding: 15px;
 
 }
@@ -163,7 +202,7 @@ nav {
 
 .main_box {
 text-align: center;
-/*padding: 250px 50px 20px 50px;*/
+padding: 50px 50px 20px 50px;
 padding-left: 12%;
 display: inline-block;
 
@@ -204,6 +243,10 @@ display: inline-block;
 /*-------------- New Donor ----------------*/
 
 /*duplicate code*/
+.white_box {
+   background-color: solid white;
+   text-align: center;
+}
 
 
 /*-------------- Donorlanding ----------------*/
@@ -231,13 +274,7 @@ display: inline-block;
 
 
 /*-------------- New Charity ----------------*/
-.green_container {
 
-}
-
-.white_box {
-
-}
 
 .radio {
 
