@@ -142,7 +142,7 @@ $('body').on('click','#editcharity',function(e){
 	editCharity();
 });
 
-function callPage(pageRefInput){
+function callPage(pageRefInput) {
 
 	$.ajax({
 		url: pageRefInput,
@@ -161,9 +161,10 @@ function callPage(pageRefInput){
 		complete: function( xhr, status) {
 		}
 
-	});
 
+	})
 }
+
 
 function newDonor(){
 	var idToken = localStorage.getItem('id_token');
