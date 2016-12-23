@@ -127,14 +127,14 @@ nav {
 }
 
 .featured_home {
-  background-color: #6A8EAE;
+  background-color: #57A773;
   text-align: center;
   border-bottom: 2px solid black;
   border-radius: 5px;
 }
 
 .feat_charity {
-  background-color: #57A773;
+  background-color: #6A8EAE;
 }
 
 .food_bank_box {
@@ -154,7 +154,7 @@ nav {
 /*formerly featured*/
 .outer_container {
     text-align: center;
-    background-color: #6A8EAE;
+    background-color: #57A773;
     /*padding-top: 2px;*/
 }
 
