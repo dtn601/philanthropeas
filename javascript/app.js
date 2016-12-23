@@ -1,7 +1,7 @@
 $(document).ready(function (){
 	//console.log('loaded')
 $('.content').load('home.html');
-	var whichUser = x;
+	// var whichUser = x;
 
 	var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
 		auth: {
@@ -94,18 +94,18 @@ $('.content').load('home.html');
      $('.btn-logout').show();
   };
 
-   function findUser(){
-  	if (whichUser === donor){
-  		$('body').on('click','.avatar', function(e){
-  			e.preventDefault();
-  			callPage('donorlanding.html')
-  		})} else {
-  		$('body').on('click','.avatar', function(e){
-  			e.preventDefault();
-  			callPage('charitylanding.html')
-  		})
-  	}
-  }
+  //  function findUser(){
+  // 	if (whichUser === donor){
+  // 		$('body').on('click','.avatar', function(e){
+  // 			e.preventDefault();
+  // 			callPage('donorlanding.html')
+  // 		})} else {
+  // 		$('body').on('click','.avatar', function(e){
+  // 			e.preventDefault();
+  // 			callPage('charitylanding.html')
+  // 		})
+  // 	}
+  // }
 
   var logout = function() {
     localStorage.removeItem('id_token');
@@ -126,7 +126,7 @@ $('body').on('click','.donor_login',function(e){
 	e.preventDefault();
 	console.log('clicked')
 	callPage('newdonor.html')
-	var whichUser = donor;
+	// var whichUser = donor;
 
 });
 
@@ -139,7 +139,7 @@ $('body').on('click','#newdonor',function(e){
 	e.preventDefault();
 	newDonor();
 	callPage ('donorlanding.html');
-	var whichUser = donor;
+	// var whichUser = donor;
 
 });
 
