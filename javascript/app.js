@@ -163,6 +163,9 @@ $('body').on('click','#view',function(e){
 	callPage('search.html')
 });
 
+$('body').on('click','#landing',function(e){
+	callPage('donorlanding.html')
+});
 
 function callPage(pageRefInput) {
 
