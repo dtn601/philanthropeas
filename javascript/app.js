@@ -1,7 +1,6 @@
-$(document).ready(function (){
+$(function(){
 	//console.log('loaded')
 $('.content').load('home.html');
-	// var whichUser = x;
 
 	var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
 		auth: {
@@ -25,8 +24,8 @@ $('.content').load('home.html');
 	      if (error) {
 	        // Handle error
 	        return;
-	      };
-	     // getUser(profile);
+	      };  
+	     // getUser(profile);     
 	  console.log(authResult.idToken);
 	  console.log(profile);
       localStorage.setItem('id_token', authResult.idToken);
@@ -40,7 +39,7 @@ $('.content').load('home.html');
   var validateUser = function(){
       var idToken = localStorage.getItem('id_token');
       var request = $.ajax({
-        url: 'https://philanthropeas.herokuapp.com/dbapi',
+        url: 'http://localhost:3000/dbapi',
         method: 'GET',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -53,16 +52,16 @@ $('.content').load('home.html');
 		request.done(function(res){
 		console.log('page loaded: ', res);
 		//$('.content').html(doner_homepage.html);
-
-		if(res === 'donerhtml'){
+		
+		if(res === 'donorhtml'){
 			callPage('donorlanding.html');
 			showDonor();
 			} else if (res === 'charhtml'){
 				callPage('charitylanding.html')
 				showCharity();
-					} else { callPage('newaccount.html')
-
-
+					} else { 
+							$('signindiv').hide();
+							$('.newaccountdiv').show();
 							}
 		});
 
@@ -88,24 +87,13 @@ $('.content').load('home.html');
   };
 
   var show_profile_info = function(profile) {
-     $('.nickname').text(profile.nickname);
+     // $('.nickname').text(profile.nickname); not used
      $('.btn-login').hide();
      $('.avatar').attr('src', profile.picture).show();
      $('.btn-logout').show();
+     $('.header-search').hide();
+     $('.header-profile').show();
   };
-
-  //  function findUser(){
-  // 	if (whichUser === donor){
-  // 		$('body').on('click','.avatar', function(e){
-  // 			e.preventDefault();
-  // 			callPage('donorlanding.html')
-  // 		})} else {
-  // 		$('body').on('click','.avatar', function(e){
-  // 			e.preventDefault();
-  // 			callPage('charitylanding.html')
-  // 		})
-  // 	}
-  // }
 
   var logout = function() {
     localStorage.removeItem('id_token');
@@ -114,27 +102,30 @@ $('.content').load('home.html');
 
   retrieve_profile();
 
+$('#myModal').modal('show')
 
 
 $('body').on('click','a',function(e){
 	e.preventDefault();
 	var pageRef = $(this).attr('href');
+	console.log(pageRef)
 	callPage(pageRef)
 });
 
-$('body').on('click','.donor_login',function(e){
+$('body').on('click','.donorSignUp',function(e){
 	e.preventDefault();
 	console.log('clicked')
-	callPage('newdonor.html')
-	// var whichUser = donor;
-
+	var pageRef = 'newdonor.html';
+	console.log(pageRef)
+	callPage(pageRef)
 });
 
-$('body').on('click','.charity_login',function(e){
+$('body').on('click','.charitySignUp',function(e){
 	e.preventDefault();
-	callPage('newcharity.html')
+	var pageRef = 'newcharity.html'
+	console.log(pageRef)
+	callPage(pageRef)
 });
-
 $('body').on('click','#newdonor',function(e){
 	e.preventDefault();
 	newDonor();
@@ -203,7 +194,7 @@ function newDonor(){
 		cause = $('.cause').val(),
 		userId = localStorage.getItem('userId')
 	$.ajax({
-		url: 'https://philanthropeas.herokuapp.com/dbapi',
+		url: 'http://localhost:3000/dbapi',
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -227,7 +218,7 @@ function newDonor(){
 function showDonor(){
 	var idToken = localStorage.getItem('id_token');
 	var request = $.ajax({
-						url: 'https://philanthropeas.herokuapp.com/dbapi/getdonor',
+						url: 'http://localhost:3000/dbapi/getdonor',
 				        method: 'GET',
 				        headers: {
 				          'Authorization': 'Bearer ' + idToken
@@ -269,7 +260,7 @@ function editDonor(){
 		userId = localStorage.getItem('userId'),
 		id = localStorage.getItem('id')
 	$.ajax({
-		url: 'https://philanthropeas.herokuapp.com/dbapi',
+		url: 'http://localhost:3000/dbapi',
         method: 'PUT',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -300,7 +291,7 @@ function newCharity(){
 		limitations = $('.limitations').val(),
 		instructions = $('.instructions').val()
 	$.ajax({
-		url: 'https://philanthropeas.herokuapp.com/charityapi',
+		url: 'http://localhost:3000/charityapi',
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -335,7 +326,7 @@ function editCharity(){
 		limitations = $('.limitations').val(),
 		instructions = $('.instructions').val()
 	$.ajax({
-		url: 'https://philanthropeas.herokuapp.com/charityapi',
+		url: 'http://localhost:3000/charityapi',
         method: 'PUT',
         headers: {
           'Authorization': 'Bearer ' + idToken
@@ -359,7 +350,7 @@ function editCharity(){
 function showCharity(){
 	var idToken = localStorage.getItem('id_token');
 	var request = $.ajax({
-						url: 'https://philanthropeas.herokuapp.com/charityapi',
+						url: 'http://localhost:3000/charityapi',
 				        method: 'GET',
 				        headers: {
 				          'Authorization': 'Bearer ' + idToken

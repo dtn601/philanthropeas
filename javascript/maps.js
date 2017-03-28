@@ -1,11 +1,11 @@
-// // Google Maps Radar Search
-    var map;
+// Google Maps Radar Search
+var map;
      var infoWindow;
      var service;
 
      function initMap() {
        map = new google.maps.Map(document.getElementById('map'), {
-         center: {lat: 30.268181, lng: -97.743145},
+         center: {lat: -33.867, lng: 151.206},
          zoom: 15,
          styles: [{
            stylers: [{ visibility: 'simplified' }]
@@ -26,7 +26,7 @@
      function performSearch() {
        var request = {
          bounds: map.getBounds(),
-         keyword: 'donation'
+         keyword: 'best view'
        };
        service.radarSearch(request, callback);
      }
@@ -64,4 +64,4 @@
        });
      }
 
-    //  PlacesService.getDetails();
+     PlacesService.getDetails();
